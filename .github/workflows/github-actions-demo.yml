@@ -62,8 +62,6 @@ jobs:
       - name: list files
         run: tree
 
-      - run: docker://alpine:3.8
-        
 
   Test:
     runs-on: ubuntu-latest
