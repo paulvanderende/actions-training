@@ -9,6 +9,11 @@ concurrency:
   group: mygroup
 
 run-name: this is my run name
+
+defaults:
+  run:
+    shell: bash
+    working-directory: /
   
 on:
   push:
@@ -47,6 +52,10 @@ jobs:
       - name: output event
         shell: bash                                  # bash, pwsh, python, cmd, powershell
         run: echo ${{ github.event_name }}
+        working-directory: /tmp
+        continue-on-error: true
+        timeout-minutes: 10
+    
 
       - name: python 
         shell: python
