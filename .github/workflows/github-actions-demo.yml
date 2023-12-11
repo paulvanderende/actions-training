@@ -123,7 +123,8 @@ jobs:
     steps:
       - name: Testing ${{ matrix.os }} on ${{ matrix.os }}
         run: | 
-          echo Testing ${{ matrix.os }} on ${{ matrix.os }}
+          echo "Testing ${{ matrix.os }} on ${{ matrix.os }}"
+          echo "Testing ${{ matrix.os }} on ${{ matrix.os }} :check:" >> "$GITHUB_STEP_SUMMARY"
           sleep 5
 
    
