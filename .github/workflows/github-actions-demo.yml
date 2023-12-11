@@ -48,8 +48,13 @@ jobs:
           echo "::error file=myfile,line=5,endLine=10,title=my error::the error message"
           echo "::endgroup::"
         continue-on-error: true  
-  
 
+      - run: echo "statevar=stateval" >> $GITHUB_STATE
+
+      - run: echo "outputvar=outputval" >> $GITHUB_OUTPUT
+
+      - run: echo "$outputvar"
+      
   DumpContext:
     runs-on: ubuntu-latest
     steps:
