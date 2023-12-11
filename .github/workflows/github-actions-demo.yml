@@ -25,7 +25,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: output event
+        shell: bash                                  # bash, pwsh, python, cmd, powershell
         run: echo ${{ github.event_name }}
+
+      - name: python 
+        shell: python
+        run: |
+          import platform
+          print(platform.platform())
 
       - name: output branch
         run: echo ${{ github.ref }}
