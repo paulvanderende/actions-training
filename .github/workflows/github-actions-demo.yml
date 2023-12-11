@@ -13,7 +13,7 @@ run-name: this is my run name
 defaults:
   run:
     shell: bash
-    working-directory: /
+    # working-directory: /
   
 on:
   push:
