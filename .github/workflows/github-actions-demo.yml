@@ -110,10 +110,21 @@ jobs:
     environment: Load-Test
     needs: Build
     if: github.event_name == 'workflow_dispatch'
+
+    strategy:
+      matrix: 
+        os:
+          - win
+          - linux
+        jvm:
+          - jdk7
+          - jkd8
+    
     steps:
-      - run: | 
-          echo Testing
-          sleep 15
+      - name: Testing ${{ matrix.os }} on ${{ matrix.os }}
+        run: | 
+          echo Testing ${{ matrix.os }} on ${{ matrix.os }}
+          sleep 5
 
    
   Production:
