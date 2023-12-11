@@ -36,6 +36,20 @@ on:
 
 jobs:
 
+  Logs:
+    runs-on: ubuntu-latest
+    steps: 
+      - run: |
+          echo "Writing to the logs"
+          echo "::group::writing to the log"
+          echo "::debug file=myfile,line=5,endLine=10,title=my error::the error message"
+          echo "::notice file=myfile,line=5,endLine=10,title=my error::the error message"
+          echo "::warning file=myfile,line=5,endLine=10,title=my error::the error message"
+          echo "::error file=myfile,line=5,endLine=10,title=my error::the error message"
+          echo "::endgroup::"
+        continue-on-error: true  
+  
+
   DumpContext:
     runs-on: ubuntu-latest
     steps:
@@ -45,6 +59,7 @@ jobs:
           testEnv: MyEnvVar
         run: echo '${{ toJSON(env) }}'
       - run: echo '${{ toJSON(matrix) }}'
+
       
   Build:
     runs-on: ubuntu-latest
