@@ -84,7 +84,7 @@ jobs:
         run: echo mydataaaaa >> cachefile
 
       - name: cache read
-        run: echo cachefile
+        run: cat cachefile
 
   Build:
     runs-on: ubuntu-latest
