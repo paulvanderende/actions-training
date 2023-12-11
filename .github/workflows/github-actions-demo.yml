@@ -80,7 +80,7 @@ jobs:
           key: ${{ runner.os }}-cachefile
 
       - name: write cache
-        if: steps.setup-cache.outputs.cache-hit != true
+        if: steps.setup-cache.outputs.cache-hit != 'true'
         run: echo mydataaaaa >> cachefile
 
       - name: cache read
