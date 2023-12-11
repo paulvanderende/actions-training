@@ -1,5 +1,15 @@
 name: GitHub Actions Demo
 
+permissions: read-all
+
+env: 
+  GLOBAL_VAR: GlobalValue
+
+concurrency: 
+  group: mygroup
+
+run-name: this is my run name
+  
 on:
   push:
     branches: 
