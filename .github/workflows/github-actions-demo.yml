@@ -68,7 +68,23 @@ jobs:
         run: echo '${{ toJSON(env) }}'
       - run: echo '${{ toJSON(matrix) }}'
 
-      
+
+  Cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup cache
+        id: setup-cache
+        uses: actions/cache@v3
+        with:
+          path: cachefile
+
+      - name: write cache
+        if: steps.setup-cache.outputs.cache-hit != true
+        run: echo mydataaaaa >> cachefile
+
+      - name: cache read
+        run: echo cachefile
+
   Build:
     runs-on: ubuntu-latest
     steps:
