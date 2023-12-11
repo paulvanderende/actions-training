@@ -21,6 +21,14 @@ on:
 
 jobs:
 
+  DumpContext:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ toJSON(runner) }}
+      - run: echo ${{ toJSON(github) }}
+      - run: echo ${{ toJSON(env) }}
+      - run: echo ${{ toJSON(matrix) }}
+      
   Build:
     runs-on: ubuntu-latest
     steps:
@@ -41,6 +49,9 @@ jobs:
 
       - name: list files
         run: tree
+
+      - run: docker://alpine:3.8
+        
 
   Test:
     runs-on: ubuntu-latest
