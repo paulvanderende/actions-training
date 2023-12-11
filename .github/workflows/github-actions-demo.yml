@@ -94,6 +94,8 @@ jobs:
       - name: list files
         run: tree
 
+      - run: echo "more info added to the step summary :rocket:" >> "$GITHUB_STEP_SUMMARY"
+
 
   Test:
     runs-on: ubuntu-latest
