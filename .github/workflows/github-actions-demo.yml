@@ -55,7 +55,9 @@ jobs:
         id: output-step
 
       - run: echo "${{ steps.output-step.outputs.outputvar }}"
-      
+
+      - run: echo "into the step summary :rocket:" >> "$GITHUB_STEP_SUMMARY"
+
   DumpContext:
     runs-on: ubuntu-latest
     steps:
