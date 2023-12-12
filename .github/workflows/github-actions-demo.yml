@@ -155,7 +155,9 @@ jobs:
    
   Production:
     runs-on: ubuntu-latest
-    environment: Production
+    environment:
+      name: Production
+      url: https://github.com
     needs: 
       - Test
       - LoadTest
